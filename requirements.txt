@@ -1,5 +1,5 @@
 asgiref==3.3.1
-astroid @ file:///C:/ci/astroid_1592495992870/work
+astroid==2.3.0
 CacheControl==0.12.6
 cachetools==4.1.1
 certifi==2020.6.20
@@ -53,7 +53,7 @@ psycopg2==2.8.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
-pylint @ file:///C:/ci/pylint_1592499115540/work
+pylint ==2.6.0
 pyparsing==2.4.7
 python-dateutil==2.8.1
 python-decouple==3.1
@@ -67,7 +67,7 @@ six==1.15.0
 sqlparse==0.2.4
 tablib==2.0.0
 threadpoolctl==2.1.0
-toml @ file:///tmp/build/80754af9/toml_1592853716807/work
+toml ==0.10.2
 typed-ast==1.4.1
 uritemplate==3.0.1
 urllib3==1.26.1
