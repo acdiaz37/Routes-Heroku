@@ -26,7 +26,7 @@ SECRET_KEY = 'zaw*fh+fhbxrd$jzucx@+z77s(0y^v(zlb0w^s6(u1ip$c2b-v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','routes-heroku.herokuapp.com/']
 
 
 # Application definition
