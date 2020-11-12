@@ -1,0 +1,842 @@
+{% extends 'masterpage/index.html' %}
+{% load static %}
+
+
+{% block content_maprouter %}
+
+    <style>
+
+        .dir_tarjeta{
+            align-content: center;
+        }
+
+        .posicion_tarjeta{
+            margin-top: 5px;
+            width: auto;
+            height: auto;
+
+        }
+
+        .contenido_tarjeta_1{
+            background-color: #35BEDE;
+            width: 350px;
+            min-height: 400px;
+            height: auto;
+
+            position: sticky;
+
+            -webkit-box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+            box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+        }
+
+        .contenido_tarjeta_2{
+            background-color: #F2F2EE;
+            min-height: 700px;
+            width: 1350px;
+            height: auto;
+
+            -webkit-box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+            box-shadow: 0 0 6px -1px rgba(0,0,0,0.75);
+        }
+
+        .background-main{
+            background: #27A399 url("{% static 'multimedia/wallpaper-card.png' %}");
+            color: #00203e;
+        }
+
+        .title-maps{
+            margin-top: 5%;
+        }
+
+        .btn-ruta{
+
+        }
+         @media  only screen and (max-width:320px) {
+           .contenido_tarjeta_1{
+               width: 260px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+
+            }
+            .contenido_tarjeta_2{
+                width: 260px;
+                min-height: 450px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+            .title-map-resp{
+                font-size: xx-large;
+                padding: 10px;
+            }
+        }
+        @media  only screen and (min-width:321px) and (max-width:360px) {
+           .contenido_tarjeta_1{
+               width: 300px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+
+            }
+            .contenido_tarjeta_2{
+                width: 300px;
+                min-height: 450px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+            .title-map-resp{
+                font-size: xx-large;
+                padding: 10px;
+            }
+        }
+        @media  only screen and (min-width:361px) and (max-width:375px) {
+           .contenido_tarjeta_1{
+               width: 315px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+
+            }
+            .contenido_tarjeta_2{
+                width: 315px;
+                min-height: 450px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+            .title-map-resp{
+                font-size: xx-large;
+                padding: 10px;
+            }
+        }
+
+        @media  only screen and (min-width:376px) and (max-width:414px) {
+           .contenido_tarjeta_1{
+               width: 350px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+
+            }
+            .contenido_tarjeta_2{
+                width: 350px;
+                min-height: 550px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+            .title-map-resp{
+                font-size: xx-large;
+                padding: 10px;
+            }
+        }
+
+        @media  only screen and (min-width:415px) and (max-width:540px) {
+           .contenido_tarjeta_1{
+               width: 480px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+
+            }
+            .contenido_tarjeta_2{
+                width: 480px;
+                min-height: 600px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+        }
+        @media  only screen and (min-width:541px) and (max-width:768px) {
+           .contenido_tarjeta_1{
+               width: 600px;
+               min-height: 200px;
+               margin-bottom: 15px;
+               text-align: center;
+            }
+            .contenido_tarjeta_2{
+                width: 600px;
+                min-height: 950px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+        }
+        @media only screen and (min-width:769px) and (max-width:1024px) {
+             .contenido_tarjeta_1{
+                 width: 850px;
+                 min-height: 200px;
+                 margin-bottom: 15px;
+                 text-align: center;
+            }
+            .contenido_tarjeta_2{
+                width: 850px;
+                min-height: 850px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+        }
+        @media only screen and (min-width:1025px) and (max-width:1280px) and (max-height: 720px) {
+            .contenido_tarjeta_1{
+                width: 240px;
+                min-height: 400px;
+                text-align: center;
+            }
+            .contenido_tarjeta_2{
+                width: 840px;
+                min-height: 400px;
+                text-align: center;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+        }
+        @media only screen and (min-width:1025px) and (max-width:1280px) and (min-height: 721px) and (max-height: 1024px) {
+            .contenido_tarjeta_1{
+                width: 240px;
+                min-height: 400px;
+            }
+            .contenido_tarjeta_2{
+                  width: 840px;
+                  min-height: 700px;
+            }
+
+        }
+        @media  only screen and (min-width:1281px) and (max-width:1366px) {
+
+            .contenido_tarjeta_1{
+                width: 250px;
+                min-height: 300px;
+            }
+            .contenido_tarjeta_2{
+                  width: 900px;
+                  min-height: 470px;
+            }
+            .text-card-resp{
+                font-size: small;
+            }
+
+        }
+        @media  only screen and (min-width:1438px) and (max-width:1440px) {
+
+            .contenido_tarjeta_1{
+                width: 300px;
+                min-height: 300px;
+            }
+            .contenido_tarjeta_2{
+                  width: 950px;
+                  min-height: 600px;
+            }
+
+        }
+        @media  only screen and (min-width:1441px) and (max-width:1536px) {
+
+            .contenido_tarjeta_1{
+                width: 300px;
+                min-height: 300px;
+            }
+            .contenido_tarjeta_2{
+                  width: 950px;
+                  min-height: 600px;
+            }
+
+        }
+        @media  only screen and (min-width:1537px) and (max-width:1600px) {
+
+            .contenido_tarjeta_1{
+                width: 350px;
+                min-height: 310px;
+            }
+            .contenido_tarjeta_2{
+                  width: 1050px;
+                  min-height: 580px;
+            }
+
+        }
+        @media  only screen and (min-width:1601px) and (max-width:1680px) {
+
+            .contenido_tarjeta_1{
+                width: 350px;
+                min-height: 400px;
+            }
+            .contenido_tarjeta_2{
+                  width: 1100px;
+                  min-height: 720px;
+            }
+
+        }
+
+    </style>
+
+    <h1 class="text-center title-maps title-map-resp">Ruta óptima para su recorrido de entregas</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+              <div class="text-center alert alert-{{ message.tags }}" style="margin-top: 15px">
+                {{ message }}
+              </div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="background-main position-relative overflow-hidden p-3 p-md-5 m-md-3">
+
+        <div class="container-fluid dir_tarjeta">
+
+            <div class="row justify-content-md-center">
+
+                <!-- Tarjeta 1-->
+                <div class="col-md-auto posicion_tarjeta">
+                    <div class="card contenido_tarjeta_1 text-center">
+                        <div class="card-body">
+                            <form id="map-form" method="post" role="form" action="{% url 'calculator' %}">
+                                {% csrf_token %}
+
+                                <h5 class="card-title">Tablero de ruta</h5>
+
+                                <p class="card-text text-card-resp">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+
+                                <label hidden for="end">¿A donde va?</label>
+                                <input hidden type="text" id="end" class="form-control" value="{{ end }}">
+                                <br>
+
+                                <label hidden for="start">¿De donde sale?</label>
+                                <input hidden type="text" id="start" class="form-control" value="{{ start }}">
+
+                                <input type="submit" value="Ver ruta" class="btn btn-dark btn-ruta" id="submit" name="ruta">
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2-->
+                <div class="col-md-auto posicion_tarjeta">
+                    <div class="card contenido_tarjeta_2" id="map"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+     <!--ALL THE JAVASCRIPT FOR MAP MANAGEMENT IS HERE (AND WHERE THE PYTHON/DJANGO CODE NEEDS TO BE)-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+    <script>
+      window.onload = function()
+      {console.log("mensaje prueba error")
+      var init_start = "{{start}}";
+      var init_end = "{{end}}";
+      console.log(init_end)
+      console.log(init_start);
+      if (init_start==="Tu ubicación actual"){
+        getPosition();
+
+
+      }
+      placeRouteParameters();
+
+       };
+    </script>
+    <script>
+
+      // Our most importante variables are here
+      var start, end, temp, waypts;
+      var originMode, map, infoWindow, geocoder, directionsService, directionsRenderer, darkMode;
+      var dir;
+
+      // This function starts the map when its called by the div identifier
+      function initMap() {
+        directionsService = new google.maps.DirectionsService;
+        directionsRenderer = new google.maps.DirectionsRenderer({
+          polylineOptions: {
+            strokeColor: "#35BEDE",
+            strokeWeight: 5,
+            strokeOpacity: 0.7
+          }
+        });
+
+        darkMode = new google.maps.StyledMapType(
+          [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ], {name: '🌙'}
+        );
+
+        // the map is declared here and its parameters are settled
+        map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: true,                                                        // activate button to toggle betwen satelite and street map type
+          mapTypeControlOptions: {
+            mapTypeIds: ['dark_mode','roadmap', 'satellite', 'hybrid']
+          },
+          streetViewControl: false,                                                    // deactivate button to enter street view mode
+          fullscreenControl: false,                                                    // deactivate button to enter full screen map mode
+          zoom: 13,                                                                    // the map zooming
+          center: {lat: 4.7100777, lng: -74.0719935},                                  // the coordiates where the map is located
+          styles: [                                                                    // design/color scheme for default map
+            {
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#ebe3cd"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#523735"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#f5f1e6"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#c9b2a6"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#dcd2be"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#ae9e90"
+                }
+              ]
+            },
+            {
+              "featureType": "landscape.natural",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#93817c"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#a5b076"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#447530"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#f5f1e6"
+                }
+              ]
+            },
+            {
+              "featureType": "road.arterial",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#fdfcf8"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#f8c967"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#e9bc62"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway.controlled_access",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#e98d58"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway.controlled_access",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#db8555"
+                }
+              ]
+            },
+            {
+              "featureType": "road.local",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#806b63"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#8f7d77"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#ebe3cd"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.station",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#b9d3c2"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#92998d"
+                }
+              ]
+            }
+          ]
+        });
+
+        map.mapTypes.set('dark_mode', darkMode);
+        map.setMapTypeId('roadmap');
+
+        directionsRenderer.setMap(map);                      // we render our google map with calling this object
+        infoWindow = new google.maps.InfoWindow;             // for getting info cards (used for print geolocation direction)
+        geocoder = new google.maps.Geocoder;                 // for geocoding: coordinates to directions and vice versa
+        originMode = false;                                  // with this bool we can toggle from origin by search bar and by geolocation without problems :)
+
+        // when "geolocation id submit input" button is actioned the function for geoposition would be activated
+        document.getElementById('geolocation').addEventListener('click', function(){
+          getPosition();
+        });
+
+        // when "submit id submit input" button is actioned the function for place our route parameters would be activated
+        document.getElementById('submit').addEventListener('click', function() {
+          //document.getElementById("myForm").submit();
+
+          //placeRouteParameters();
+        });
+      }
+
+      /*
+      ALL IMPORTANT FUNCTIONS FOR THE WORKING MAP PROJECT ARE HERE, ALL OF THEM ARE PREPARED TO BE
+      IMPLEMENTED WITH PYTHON SOON THROUGH DJANGO BLOCKS. ALL THIS FUNCTIONS HELPS THIS APP TO WORK
+      ACOMPLISHING THE REQUIEREMENTS SETTLED
+      */
+
+      // sets start/end points for the program, helps to prevent problems while toggling between origin point geolocated or texted
+      function placeRouteParameters(){
+        console.log("Estamos aqui")
+          console.log(originMode)
+
+        if (originMode === true){
+          if ('{{start}}'==='Tu ubicación actual'){
+            end = '{{end}}';
+            calculateAndDisplayRoute(directionsService, directionsRenderer);
+            originMode = false;
+          }
+        }else{
+          setByText();
+          if (originMode === false){
+            console.log('{{start}}')
+            if ('{{start}}'!== 'Tu ubicación actual'){
+
+              console.log("estamos aqui parte 3")
+              calculateAndDisplayRoute(directionsService, directionsRenderer);
+              originMode = false;
+            }else{
+              console.log('aqui estamos parte 4')
+              console.log('{{end}}')
+              start = temp;
+              end = '{{end}}';
+              calculateAndDisplayRoute(directionsService, directionsRenderer);
+              originMode = false;
+            }
+          }
+        }
+
+      }
+
+      // sets the start point by text
+      function setByText(){
+        console.log("estamos aqui parte 2")
+        start = '{{start}}';
+        end = '{{end}}';
+      }
+
+      // sets the start point by geolocation
+      function getPosition() {
+        if(navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            originMode = true;
+            pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var result;
+            geocoder.geocode({'location': pos}, function(results, status) {
+              if (status === 'OK') {
+                if (results[0]) {   // with this conditional we can do get actual direction through the coordinates obtained by geolocating
+                  dir = results[0].formatted_address;
+                  infoWindow.setPosition(pos);
+                  infoWindow.setContent(dir);
+                  infoWindow.open(map);
+                  map.setCenter(pos);          // later we print that direction in our "infoWindow" and scopes the map to the geolocated place
+                  map.setZoom(15);
+                } else {
+                  window.alert('Dirección desconocida');
+                }
+              } else {
+                window.alert('No pudimos tomar tu ubicación, trata de ingresar una dirección en su lugar');
+              }
+            });
+            start = pos;  // we save the geolocated start point value into a temp variable to prevent errors in placeRouteParameters()
+            temp = start;
+            document.getElementById('start').value = 'Tu ubicación actual';
+          });
+        } else {
+          originMode = false; // if geolocation request is denied we just set start point by text
+          setByText();
+        }
+      }
+
+      // with this function we start to calculate our route
+      function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+
+        // for start we set a array with waypoints to be settled in the middle of our start and end points
+        // NOTE! Here we need to pass a python array with all the coordinates given by the neural network
+       // waypts.push({
+         //     location: {lat: latitud, lon: longitud},
+           //   stopover: true
+            //});
+
+
+        waypts = [];
+        var checkboxArray = JSON.parse('{{prueba2}}');
+        console.log(checkboxArray.length)
+
+        for (var i = 0; i < checkboxArray.length; i++) {
+          console.log(checkboxArray[i])
+         // if (checkboxArray.options[i].selected) {
+            waypts.push({
+              location:{lat:checkboxArray[i][0],lng:checkboxArray[i][1]},
+              stopover: true
+            });
+
+        }
+        console.log(waypts)
+        // this is an google maps api call to configure the route parameters:
+        // start, end, waypoints enabled, if waypoints are optimized, and the travel mode (in colombia BYCICLE mode is disabled thats why we put DRIVING mode)
+        directionsService.route({origin: start, destination: end, waypoints: waypts, optimizeWaypoints: true, travelMode: 'DRIVING'},
+
+        // finally, if everything is right, we call the directionsRendered parameter from Google Maps Api to print the route
+        function(response, status) {
+          if (status === 'OK') {
+            directionsRenderer.setDirections(response);
+            if (infoWindow){
+              infoWindow.close();
+            }
+            infoWindow = new google.maps.InfoWindow();
+          } else {
+            window.alert('Por favor revisa tus puntos de inicio y destino');
+            // if fields are blank all of them, or theres some input error the web will prompt this alert message
+          }
+        });
+      }
+    </script>
+
+    <!--DO NOT TOUCH! THESE ARE SCRIPTS FOR GETTING GOOGLE MAPS AND BOOTSTRAP WORKING WELL-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpKjFv9Nq8B6rDerR1W-EZyHZm-cHSNFk&callback=initMap"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% endblock %}
